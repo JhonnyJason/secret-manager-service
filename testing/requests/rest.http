@@ -4,11 +4,134 @@
 
 ############################################################
 ### local test requests
-POST {{local}}/route
+POST {{local}}/addNodeId
 content-type: application/json
 
 {
+    "publicKey": "",
+    "timestamp": "",
+    "signature": ""
 }
+
+# response
+# {
+#     ok: true
+# }
+
+###
+POST {{local}}/getSecretSpace
+content-type: application/json
+
+{
+    "publicKey": "",
+    "timestamp": "",
+    "signature": ""
+}
+
+# response
+# {
+#     secretSpace: "" //encrypted json string
+# }
+
+###
+POST {{local}}/getSecret
+content-type: application/json
+
+{
+    "publicKey": "",
+    "secretKey": "",
+    "timestamp": "",
+    "signature": ""
+}
+
+# response
+# {
+#     secret: "",
+#     secretLeaked: false
+# }
+
+###
+POST {{local}}/setSecret
+content-type: application/json
+
+{
+    "publicKey": "",
+    "secretKey": "",
+    "timestamp": "",
+    "signature": ""
+}
+
+# response
+# {
+#     ok: true
+# }
+
+###
+POST {{local}}/startSharingSecretTo
+content-type: application/json
+
+{
+    "shareTo": "",
+    "publicKey": "",
+    "secretKey": "",
+    "timestamp": "",
+    "signature": ""
+}
+
+# response
+# {
+#     ok: true
+# }
+
+###
+POST {{local}}/stopSharingSecretTo
+content-type: application/json
+
+{
+    "shareTo": "",
+    "publicKey": "",
+    "secretKey": "",
+    "timestamp": "",
+    "signature": ""
+}
+
+# response
+# {
+#     ok: true
+# }
+
+###
+POST {{local}/startSharingSecretSpaceTo
+content-type: application/json
+
+{
+    "shareTo": "",
+    "publicKey": "",
+    "timestamp": "",
+    "signature": ""
+}
+
+# response
+# {
+#     ok: true
+# }
+
+###
+POST https://localhost:6999/stopSharingSecretSpaceTo
+content-type: application/json
+
+{
+    "shareTo": "",
+    "publicKey": "",
+    "timestamp": "",
+    "signature": ""
+}
+
+# response
+# {
+#     ok: true
+# }
+
 
 ############################################################
 ### deployment requests
