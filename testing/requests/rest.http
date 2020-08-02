@@ -11,7 +11,7 @@ content-type: application/json
 {
     "publicKey": "MCowBQYDK2VwAyEAxyJH+dZqAh5Fib0ZiLdfqn6FQnxZFEwdLSUlLUWM+fs=",
     "timestamp": "",
-    "signature": ""
+    "signature": "GcsHEGY9lLfebwO4Kw85j71NDaNCEJMg0RD57gcWjeFsJOGG3F2GVeT4TXlbZ1tFPCckMH3t64rwv5tc0vbjBQ=="
 }
 
 ### add nodeId for pubtwo
@@ -21,7 +21,7 @@ content-type: application/json
 {
     "publicKey": "MCowBQYDK2VwAyEAPR4EQTQm/r/iLYNYEux8ixfAXMwpqtG6Z4HWoj4W+0w=",
     "timestamp": "",
-    "signature": ""
+    "signature": "DGPQYnuEPbC6xQiTBqL+v8C2SDyGdCmvzBWDXUSxcWbKAN3Qose9oNAarj0xMoOIPMtfGZ00bM+Lvcs9MZzjAw=="
 }
 
 ### from pubone
