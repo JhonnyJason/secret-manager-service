@@ -3,27 +3,43 @@
 @deploy = https://
 
 ############################################################
-### local test requests
+# local test requests
+### add nodeId for pubone
 POST {{local}}/addNodeId
 content-type: application/json
 
 {
-    "publicKey": "",
+    "publicKey": "MCowBQYDK2VwAyEAxyJH+dZqAh5Fib0ZiLdfqn6FQnxZFEwdLSUlLUWM+fs=",
     "timestamp": "",
     "signature": ""
 }
 
-# response
-# {
-#     ok: true
-# }
+### add nodeId for pubtwo
+POST {{local}}/addNodeId
+content-type: application/json
 
-###
+{
+    "publicKey": "MCowBQYDK2VwAyEAPR4EQTQm/r/iLYNYEux8ixfAXMwpqtG6Z4HWoj4W+0w=",
+    "timestamp": "",
+    "signature": ""
+}
+
+### from pubone
 POST {{local}}/getSecretSpace
 content-type: application/json
 
 {
-    "publicKey": "",
+    "publicKey": "MCowBQYDK2VwAyEAxyJH+dZqAh5Fib0ZiLdfqn6FQnxZFEwdLSUlLUWM+fs=",
+    "timestamp": "",
+    "signature": ""
+}
+
+### from pubtwo
+POST {{local}}/getSecretSpace
+content-type: application/json
+
+{
+    "publicKey": "MCowBQYDK2VwAyEAPR4EQTQm/r/iLYNYEux8ixfAXMwpqtG6Z4HWoj4W+0w=",
     "timestamp": "",
     "signature": ""
 }
@@ -31,6 +47,35 @@ content-type: application/json
 # response
 # {
 #     secretSpace: "" //encrypted json string
+# }
+
+### 
+POST {{local}}/setSecret
+content-type: application/json
+
+{
+    "publicKey": "",
+    "secretKey": "",
+    "secret": "",
+    "timestamp": "",
+    "signature": ""
+}
+
+###
+POST {{local}}/setSecret
+content-type: application/json
+
+{
+    "publicKey": "",
+    "secretKey": "",
+    "secret": "",
+    "timestamp": "",
+    "signature": ""
+}
+
+# response
+# {
+#     ok: true
 # }
 
 ###
@@ -48,22 +93,6 @@ content-type: application/json
 # {
 #     secret: "",
 #     secretLeaked: false
-# }
-
-###
-POST {{local}}/setSecret
-content-type: application/json
-
-{
-    "publicKey": "",
-    "secretKey": "",
-    "timestamp": "",
-    "signature": ""
-}
-
-# response
-# {
-#     ok: true
 # }
 
 ###
@@ -101,7 +130,7 @@ content-type: application/json
 # }
 
 ###
-POST {{local}/startSharingSecretSpaceTo
+POST {{local}}/startSharingSecretSpaceTo
 content-type: application/json
 
 {
@@ -117,7 +146,7 @@ content-type: application/json
 # }
 
 ###
-POST https://localhost:6999/stopSharingSecretSpaceTo
+POST {{local}}/stopSharingSecretSpaceTo
 content-type: application/json
 
 {
