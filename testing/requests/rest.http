@@ -1,6 +1,6 @@
 ############################################################
 @local = https://localhost:6999
-@deploy = https://
+@deploy = https://secrets.extensivlyon.coffee
 
 ############################################################
 # local test requests
@@ -9,19 +9,9 @@ POST {{local}}/addNodeId
 content-type: application/json
 
 {
-    "publicKey": "MCowBQYDK2VwAyEAxyJH+dZqAh5Fib0ZiLdfqn6FQnxZFEwdLSUlLUWM+fs=",
+    "publicKey": "9a16ce79c30b3b6b11b9c28e33e64e0d5d270cffebaf12d4c878552ddb2634e5",
     "timestamp": "",
-    "signature": "GcsHEGY9lLfebwO4Kw85j71NDaNCEJMg0RD57gcWjeFsJOGG3F2GVeT4TXlbZ1tFPCckMH3t64rwv5tc0vbjBQ=="
-}
-
-### add nodeId for pubtwo
-POST {{local}}/addNodeId
-content-type: application/json
-
-{
-    "publicKey": "MCowBQYDK2VwAyEAPR4EQTQm/r/iLYNYEux8ixfAXMwpqtG6Z4HWoj4W+0w=",
-    "timestamp": "",
-    "signature": "DGPQYnuEPbC6xQiTBqL+v8C2SDyGdCmvzBWDXUSxcWbKAN3Qose9oNAarj0xMoOIPMtfGZ00bM+Lvcs9MZzjAw=="
+    "signature": "3fec1ed9c831c21d73fc0d31bb68a6c17b0d83d7bc50baf2338b12aedb1c74f25d03bb2a7ac192879d33781bcd8b6f6b4a511a74d956f05219e4c52be6e04f0d"
 }
 
 ### from pubone
@@ -29,46 +19,75 @@ POST {{local}}/getSecretSpace
 content-type: application/json
 
 {
-    "publicKey": "MCowBQYDK2VwAyEAxyJH+dZqAh5Fib0ZiLdfqn6FQnxZFEwdLSUlLUWM+fs=",
+    "publicKey": "9a16ce79c30b3b6b11b9c28e33e64e0d5d270cffebaf12d4c878552ddb2634e5",
     "timestamp": "",
-    "signature": ""
-}
-
-### from pubtwo
-POST {{local}}/getSecretSpace
-content-type: application/json
-
-{
-    "publicKey": "MCowBQYDK2VwAyEAPR4EQTQm/r/iLYNYEux8ixfAXMwpqtG6Z4HWoj4W+0w=",
-    "timestamp": "",
-    "signature": ""
+    "signature": "3fec1ed9c831c21d73fc0d31bb68a6c17b0d83d7bc50baf2338b12aedb1c74f25d03bb2a7ac192879d33781bcd8b6f6b4a511a74d956f05219e4c52be6e04f0d"
 }
 
 # response
 # {
-#     secretSpace: "" //encrypted json string
+#     "referencePoint": "...",
+#     "encryptedContent": "..."
 # }
-
-### 
-POST {{local}}/setSecret
-content-type: application/json
-
-{
-    "publicKey": "",
-    "secretKey": "",
-    "secret": "",
-    "timestamp": "",
-    "signature": ""
-}
 
 ###
 POST {{local}}/setSecret
 content-type: application/json
 
 {
+    "publicKey": "cd9e84fce91adec2a92036ef4e9aec3a717e369451572619ffe4498421a08658",
+    "secretId": "darlingScore",
+    "secret": "0",
+    "timestamp": "",
+    "signature": "6cf0d7ab4fe5e2f90ad9744b3aaecfa7b57dad2f2ecf0e0591656a08af7dc8f0262dfcb994a8cd02ed3efc52aa1f1a48e7e49052860a7c17bd79e2dabe75f405"
+}
+
+# response
+# {
+#     ok: true
+# }
+
+###
+POST {{local}}/deleteSecret
+content-type: application/json
+
+{
+    "publicKey": "cd9e84fce91adec2a92036ef4e9aec3a717e369451572619ffe4498421a08658",
+    "secretId": "darlingScore",
+    "timestamp": "",
+    "signature": "e4772dc87d635e689731b68d36b9cc11e5d284488a0873b7cdc1092d1521680082831f88df9aaf4bbc8cdb15fcfe7d3072df859609388fe3c564edde2e888604"
+}
+
+# response
+# {
+#     ok: true
+# }
+
+
+###
+POST {{local}}/getSecret
+content-type: application/json
+
+{
     "publicKey": "",
-    "secretKey": "",
-    "secret": "",
+    "secretId": "",
+    "timestamp": "",
+    "signature": ""
+}
+
+# response
+# {
+#     "referencePoint": "...",
+#     "encryptedContent": "..."
+# }
+
+###
+POST {{local}}/startAcceptingSecretsFrom
+content-type: application/json
+
+{
+    "publicKey": "",
+    "fromId": "",
     "timestamp": "",
     "signature": ""
 }
@@ -79,32 +98,32 @@ content-type: application/json
 # }
 
 ###
-POST {{local}}/getSecret
+POST {{local}}/stopAcceptingSecretsFrom
 content-type: application/json
 
 {
     "publicKey": "",
-    "secretKey": "",
+    "fromId": "",
     "timestamp": "",
     "signature": ""
 }
 
 # response
 # {
-#     secret: "",
-#     secretLeaked: false
+#     ok: true
 # }
+
 
 ###
 POST {{local}}/startSharingSecretTo
 content-type: application/json
 
 {
-    "shareTo": "",
-    "publicKey": "",
-    "secretKey": "",
+    "shareTo": "c0d09bc0faaab96ed5c543e1a003de7d77b3a7272f06f6789b620f321b14add0",
+    "publicKey": "cd9e84fce91adec2a92036ef4e9aec3a717e369451572619ffe4498421a08658",
+    "secretId": "darlingScore",
     "timestamp": "",
-    "signature": ""
+    "signature": "73f14ab7af5951a22dd6fd9936d170ebd60e34629b3b7453ff2e78a9fd25b262cce21553a716bd97e35036fe89f527d873f7db0dc376088a98e4f4e5b893ec0d"
 }
 
 # response
@@ -117,41 +136,9 @@ POST {{local}}/stopSharingSecretTo
 content-type: application/json
 
 {
-    "shareTo": "",
+    "shareTo": "c0d09bc0faaab96ed5c543e1a003de7d77b3a7272f06f6789b620f321b14add0",
     "publicKey": "",
-    "secretKey": "",
-    "timestamp": "",
-    "signature": ""
-}
-
-# response
-# {
-#     ok: true
-# }
-
-###
-POST {{local}}/startSharingSecretSpaceTo
-content-type: application/json
-
-{
-    "shareTo": "",
-    "publicKey": "",
-    "timestamp": "",
-    "signature": ""
-}
-
-# response
-# {
-#     ok: true
-# }
-
-###
-POST {{local}}/stopSharingSecretSpaceTo
-content-type: application/json
-
-{
-    "shareTo": "",
-    "publicKey": "",
+    "secretId": "",
     "timestamp": "",
     "signature": ""
 }
