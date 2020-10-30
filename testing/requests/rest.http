@@ -14,6 +14,16 @@ content-type: application/json
     "signature": "3fec1ed9c831c21d73fc0d31bb68a6c17b0d83d7bc50baf2338b12aedb1c74f25d03bb2a7ac192879d33781bcd8b6f6b4a511a74d956f05219e4c52be6e04f0d"
 }
 
+### add nodeId invalid signature
+POST {{local}}/addNodeId
+content-type: application/json
+
+{
+    "publicKey": "9a16ce79c30b3b6b11b9c28e33e64e0d5d270cffebaf12d4c878552ddb2634e5",
+    "timestamp": "",
+    "signature": "3fec1ed9c831c21d73fc0d31bb8a6c17b0d83d7bc50baf2338b12aedb1c74f25d03bb2a7ac192879d33781bcd8b6f6b4a511a74d956f05219e4c52be6e04f0d"
+}
+
 ### from pubone
 POST {{local}}/getSecretSpace
 content-type: application/json
@@ -23,12 +33,6 @@ content-type: application/json
     "timestamp": "",
     "signature": "3fec1ed9c831c21d73fc0d31bb68a6c17b0d83d7bc50baf2338b12aedb1c74f25d03bb2a7ac192879d33781bcd8b6f6b4a511a74d956f05219e4c52be6e04f0d"
 }
-
-# response
-# {
-#     "referencePoint": "...",
-#     "encryptedContent": "..."
-# }
 
 ###
 POST {{local}}/setSecret
@@ -42,10 +46,17 @@ content-type: application/json
     "signature": "6cf0d7ab4fe5e2f90ad9744b3aaecfa7b57dad2f2ecf0e0591656a08af7dc8f0262dfcb994a8cd02ed3efc52aa1f1a48e7e49052860a7c17bd79e2dabe75f405"
 }
 
-# response
-# {
-#     ok: true
-# }
+### set Secret Invalid Signature
+POST {{local}}/setSecret
+content-type: application/json
+
+{
+    "publicKey": "cd9e84fce91adec2a92036ef4e9aec3a717e369451572619ffe4498421a08658",
+    "secretId": "darlingScore",
+    "secret": "0",
+    "timestamp": "",
+    "signature": "6cf0d7ab4fe5e2f90ad9744b3aaecfa7b57dad2f2ecf0e0591656a08af7dc8f0262dfcb994a8cd02ed3efc52aa1f1a48e7e490528607c17bd79e2dabe75f405"
+}
 
 ###
 POST {{local}}/deleteSecret
