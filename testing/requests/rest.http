@@ -4,166 +4,371 @@
 
 ############################################################
 # local test requests
-### add nodeId for pubone
+### add nodeId 1
+## 2d44a025be09b5c82ad0440b50e87a8a6f5ff3021c8820fe226bf72b25f96bad
+## cfbcd5b69e1a9967d5cf23ad14a1b1618d1f49f328f7328ae56a052bb7226826
 POST {{local}}/addNodeId
 content-type: application/json
 
 {
-    "publicKey": "9a16ce79c30b3b6b11b9c28e33e64e0d5d270cffebaf12d4c878552ddb2634e5",
+    "publicKey": "2d44a025be09b5c82ad0440b50e87a8a6f5ff3021c8820fe226bf72b25f96bad",
     "timestamp": "",
-    "signature": "3fec1ed9c831c21d73fc0d31bb68a6c17b0d83d7bc50baf2338b12aedb1c74f25d03bb2a7ac192879d33781bcd8b6f6b4a511a74d956f05219e4c52be6e04f0d"
+    "signature": "2914efc19549082b439dab5042cc99e3236eda97e278ddad9f029b6a8f9b051bd20a2a01220aecbb75a1dec3a0d25353d59913fb406b10a8a0027418f1034809"
 }
 
-### add nodeId invalid signature
+### add nodeId 2
+## 9593f63450206a42657a8a3235747d0edba0f1f8707bf2d6127f7e6315203b52
+## ed477201e5e8ca20b167d07dface0c069ef308fd7f65d0ee608330f120c0809a
 POST {{local}}/addNodeId
 content-type: application/json
 
 {
-    "publicKey": "9a16ce79c30b3b6b11b9c28e33e64e0d5d270cffebaf12d4c878552ddb2634e5",
+    "publicKey": "9593f63450206a42657a8a3235747d0edba0f1f8707bf2d6127f7e6315203b52",
     "timestamp": "",
-    "signature": "3fec1ed9c831c21d73fc0d31bb8a6c17b0d83d7bc50baf2338b12aedb1c74f25d03bb2a7ac192879d33781bcd8b6f6b4a511a74d956f05219e4c52be6e04f0d"
+    "signature": "7882276c35f6f96da8b299cb24b700d5435641a8f42296ca3803cf5afc67b9ffaeccef546d04643d68ddabb38fff111385b73a1253157e53bd99c0968389f10e"
 }
 
-### from pubone
+
+
+
+
+
+
+
+
+### get secretSpace from nodeId 1
 POST {{local}}/getSecretSpace
 content-type: application/json
 
 {
-    "publicKey": "9a16ce79c30b3b6b11b9c28e33e64e0d5d270cffebaf12d4c878552ddb2634e5",
+    "publicKey": "2d44a025be09b5c82ad0440b50e87a8a6f5ff3021c8820fe226bf72b25f96bad",
     "timestamp": "",
-    "signature": "3fec1ed9c831c21d73fc0d31bb68a6c17b0d83d7bc50baf2338b12aedb1c74f25d03bb2a7ac192879d33781bcd8b6f6b4a511a74d956f05219e4c52be6e04f0d"
+    "signature": "96223072d53fe3e86cbc900f0410d10bb7b21a051be8b8c0c96ef98ea4498c71d660d2e876084d0aa774cc4ead7f5b6eaaae225a98c9a055178e7f2a5c380307"
 }
 
-###
+### get secretSpace from nodeId 2
+POST {{local}}/getSecretSpace
+content-type: application/json
+
+{
+    "publicKey": "9593f63450206a42657a8a3235747d0edba0f1f8707bf2d6127f7e6315203b52",
+    "timestamp": "",
+    "signature": "0cd70010225bd2aa81401176a1544eea79cacc9e7009469d1ede36502a0251bb9ef47e7642916b38fcc6873ad0beac0bcea93bb6b45703114b21cbc3d34aca0f"
+}
+
+
+
+
+
+
+
+
+
+### set Secret "darlingScore" = 9 nodeId 1
 POST {{local}}/setSecret
 content-type: application/json
 
 {
-    "publicKey": "cd9e84fce91adec2a92036ef4e9aec3a717e369451572619ffe4498421a08658",
+    "publicKey": "2d44a025be09b5c82ad0440b50e87a8a6f5ff3021c8820fe226bf72b25f96bad",
     "secretId": "darlingScore",
-    "secret": "0",
+    "secret": "9",
     "timestamp": "",
-    "signature": "6cf0d7ab4fe5e2f90ad9744b3aaecfa7b57dad2f2ecf0e0591656a08af7dc8f0262dfcb994a8cd02ed3efc52aa1f1a48e7e49052860a7c17bd79e2dabe75f405"
+    "signature": "fa774c25bcf4a5b1f05974297ef9047b0ea3c8e57184719f0480be6350de3d7d66f9bb61f1bd06dc24245d594579a72423aabe4450c5a788cd2d24bd11b3d803"
 }
 
-### set Secret Invalid Signature
+### set Secret "darlingAddress" = "9593f63450206a42657a8a3235747d0edba0f1f8707bf2d6127f7e6315203b52" nodeId 1
 POST {{local}}/setSecret
 content-type: application/json
 
 {
-    "publicKey": "cd9e84fce91adec2a92036ef4e9aec3a717e369451572619ffe4498421a08658",
-    "secretId": "darlingScore",
-    "secret": "0",
+    "publicKey": "2d44a025be09b5c82ad0440b50e87a8a6f5ff3021c8820fe226bf72b25f96bad",
+    "secretId": "darlingAddress",
+    "secret": "9593f63450206a42657a8a3235747d0edba0f1f8707bf2d6127f7e6315203b52",
     "timestamp": "",
-    "signature": "6cf0d7ab4fe5e2f90ad9744b3aaecfa7b57dad2f2ecf0e0591656a08af7dc8f0262dfcb994a8cd02ed3efc52aa1f1a48e7e490528607c17bd79e2dabe75f405"
+    "signature": "2df99a20e9b4661338cd3251eedd50e51380efb120f5b1ba0fc48a2bc7437900a88c3b6a8ec5efdec2d34ae75a4ae2ef1a99d22d8e3306d2957780331fb08d05"
 }
 
-###
-POST {{local}}/deleteSecret
+
+### set Secret nodeId 2
+POST {{local}}/setSecret
 content-type: application/json
 
 {
-    "publicKey": "cd9e84fce91adec2a92036ef4e9aec3a717e369451572619ffe4498421a08658",
+    "publicKey": "9593f63450206a42657a8a3235747d0edba0f1f8707bf2d6127f7e6315203b52",
     "secretId": "darlingScore",
+    "secret": "0",
     "timestamp": "",
-    "signature": "e4772dc87d635e689731b68d36b9cc11e5d284488a0873b7cdc1092d1521680082831f88df9aaf4bbc8cdb15fcfe7d3072df859609388fe3c564edde2e888604"
+    "signature": "4dbaf2d0d89a5b98d56cfefc22d9e2ea99ea39870fc75943cb5b8d6d00403b39093c249d24be67546ff8d110b564987b357b608212665b2fc9f69dad96e1bb0a"
 }
 
-# response
-# {
-#     ok: true
-# }
+### set Secret "darlingAddress" = "2d44a025be09b5c82ad0440b50e87a8a6f5ff3021c8820fe226bf72b25f96bad" nodeId 2
+POST {{local}}/setSecret
+content-type: application/json
+
+{
+    "publicKey": "9593f63450206a42657a8a3235747d0edba0f1f8707bf2d6127f7e6315203b52",
+    "secretId": "darlingAddress",
+    "secret": "2d44a025be09b5c82ad0440b50e87a8a6f5ff3021c8820fe226bf72b25f96bad",
+    "timestamp": "",
+    "signature": "62f8d74aee8aed0a984682214008a1ed3891eaa69f14e7de668049a479a5b9eb29d6a7ad674b98562d9f6635fe9b7d01556cb9c059fb4d239fd113287dcdec01"
+}
 
 
-###
+
+
+
+
+
+
+
+
+
+
+### get Secret "darlingScore" nodeId 1
 POST {{local}}/getSecret
 content-type: application/json
 
 {
-    "publicKey": "",
-    "secretId": "",
+    "publicKey": "2d44a025be09b5c82ad0440b50e87a8a6f5ff3021c8820fe226bf72b25f96bad",
+    "secretId": "darlingScore",
     "timestamp": "",
-    "signature": ""
+    "signature": "3ffa217d6d13a5277dbb3498e9c1245bebf965353ca5d633a8019abec2601a7febea9e9aec8bd48e79f625d91f8696277e0bd6a6e61eff7e5d74a83ef412260f"
 }
 
-# response
-# {
-#     "referencePoint": "...",
-#     "encryptedContent": "..."
-# }
+### get Secret "darlingAddress" nodeId 1
+POST {{local}}/getSecret
+content-type: application/json
 
-###
+{
+    "publicKey": "2d44a025be09b5c82ad0440b50e87a8a6f5ff3021c8820fe226bf72b25f96bad",
+    "secretId": "darlingAddress",
+    "timestamp": "",
+    "signature": "4e5c42f88391f9e82c4234477730950436954694a26f9288ce5ed0422231c1f55166137a045e34d7743408def10301ba4be8b76e94048c228752d2d7f6a7f402"
+}
+
+
+### get Secret "darlingScore" nodeId 2
+POST {{local}}/getSecret
+content-type: application/json
+
+{
+    "publicKey": "9593f63450206a42657a8a3235747d0edba0f1f8707bf2d6127f7e6315203b52",
+    "secretId": "darlingScore",
+    "timestamp": "",
+    "signature": "e0c4d4c126a93762d569fd06a3b74285c8f51d27c36e9cbb51358ea39131b35ae4699cd146eef1ea37729a3938cb7edd569b46917919cdca10d0fede2f756c05"
+}
+
+### get Secret "darlingAddress" nodeId 2
+POST {{local}}/getSecret
+content-type: application/json
+
+{
+    "publicKey": "9593f63450206a42657a8a3235747d0edba0f1f8707bf2d6127f7e6315203b52",
+    "secretId": "darlingAddress",
+    "timestamp": "",
+    "signature": "1e3d35685fe55c0b8693890a10d42366c13001dede74cd44de5d841d888de1e8e3bd5ee4be1de1c382a5d8342f77031589223cf656b563a25422e4593ef67602"
+}
+
+
+
+
+
+
+
+
+### get Secret (shared) nodeId 1
+POST {{local}}/getSecret
+content-type: application/json
+
+{
+    "publicKey": "2d44a025be09b5c82ad0440b50e87a8a6f5ff3021c8820fe226bf72b25f96bad",
+    "secretId": "9593f63450206a42657a8a3235747d0edba0f1f8707bf2d6127f7e6315203b52.darlingScore",
+    "timestamp": "",
+    "signature": "77d4d516c9540ce81d368cc376e4d2f0466225a910de4c8563eff44fbdae09946f85a87a80d1caf2986b503e6ab83b9bc63e585e0ae1e917991e27a16489ac02"
+}
+
+### get Secret (shared) nodeId 2
+POST {{local}}/getSecret
+content-type: application/json
+
+{
+    "publicKey": "9593f63450206a42657a8a3235747d0edba0f1f8707bf2d6127f7e6315203b52",
+    "secretId": "2d44a025be09b5c82ad0440b50e87a8a6f5ff3021c8820fe226bf72b25f96bad.darlingScore",
+    "timestamp": "",
+    "signature": "741e7b8a6df37042830952aeeebda423bc5c24d4973b8e76e4b5eac7dcb2782f711a4fd883a20cb9310386d404a34c1f0cccf5c24b672dbf125b0ef808b9f10f"
+}
+
+
+
+
+
+
+
+
+
+
+### delete secret "darlingAddress" nodeId 1
+POST {{local}}/deleteSecret
+content-type: application/json
+
+{
+    "publicKey": "2d44a025be09b5c82ad0440b50e87a8a6f5ff3021c8820fe226bf72b25f96bad",
+    "secretId": "darlingAddress",
+    "timestamp": "",
+    "signature": "f7cd4f88f2cc2dec60584e3120e71416ea666492a4b64fb79663a6810c21fb4dcab67cc29f794cd85bfdaef5480b92e765cd06c9fff2f2986dcceb87b4ab410d"
+}
+
+### delete secret "darlingScore" nodeId 1
+POST {{local}}/deleteSecret
+content-type: application/json
+
+{
+    "publicKey": "2d44a025be09b5c82ad0440b50e87a8a6f5ff3021c8820fe226bf72b25f96bad",
+    "secretId": "darlingScore",
+    "timestamp": "",
+    "signature": "d84ac5371957340c8c93d6ecc96f3520041d62bd0a41d562005cf10d3377e78b2e32275f87202d1df07e4165cebdaeb30fd1e1c9b388ea33e318e97feb537b07"
+}
+
+### delete secret "darlingAddress" nodeId 2
+POST {{local}}/deleteSecret
+content-type: application/json
+
+{
+    "publicKey": "9593f63450206a42657a8a3235747d0edba0f1f8707bf2d6127f7e6315203b52",
+    "secretId": "darlingAddress",
+    "timestamp": "",
+    "signature": "23f2482fa2695f3d613850a56ce2823b98250bd1b237eed8f96f6569a500c11c62b7bde9fcca2e7d12b888d6f49020431e6851d5e57049656da970645b998908"
+}
+
+### delete secret "darlingScore" nodeId 2
+POST {{local}}/deleteSecret
+content-type: application/json
+
+{
+    "publicKey": "9593f63450206a42657a8a3235747d0edba0f1f8707bf2d6127f7e6315203b52",
+    "secretId": "darlingScore",
+    "timestamp": "",
+    "signature": "3a27d07a2c7027a5c8703230dea200d984adfbb62a19e5d2992cefe5f658397170e1f508020a4a2818cbc61f2f2243ad15dd689b46b0986bbd811973521be40f"
+}
+
+
+
+
+
+
+
+
+
+### nodeId 1 starts accepting secrets from nodeId 2
 POST {{local}}/startAcceptingSecretsFrom
 content-type: application/json
 
 {
-    "publicKey": "",
-    "fromId": "",
+    "publicKey": "2d44a025be09b5c82ad0440b50e87a8a6f5ff3021c8820fe226bf72b25f96bad",
+    "fromId": "9593f63450206a42657a8a3235747d0edba0f1f8707bf2d6127f7e6315203b52",
     "timestamp": "",
-    "signature": ""
+    "signature": "3a27e517aca2aad70d4fe8f87dbadf50793ee2dbfa32582395bb43052b748a417df65d7fd0a92736101c78f6a4c99c7b03d16106980a9d83e2c2fdd6a6fa430c"
 }
 
-# response
-# {
-#     ok: true
-# }
 
-###
+### nodeId 2 starts accepting secrets from nodeId 1
+POST {{local}}/startAcceptingSecretsFrom
+content-type: application/json
+
+{
+    "publicKey": "9593f63450206a42657a8a3235747d0edba0f1f8707bf2d6127f7e6315203b52",
+    "fromId": "2d44a025be09b5c82ad0440b50e87a8a6f5ff3021c8820fe226bf72b25f96bad",
+    "timestamp": "",
+    "signature": "ca8ac115e8b9c6fb2a2bfb8a10d9f9944489cd05eb00627a33855ffd4c9cc23a78b7881c8f032c79db92d7db6433c5218fbdeefb056a9f63ff8b624aa4842401"
+}
+
+
+
+
+
+
+
+
+### nodeId 1 stops accepting secrets from nodeId 2
 POST {{local}}/stopAcceptingSecretsFrom
 content-type: application/json
 
 {
-    "publicKey": "",
-    "fromId": "",
+    "publicKey": "2d44a025be09b5c82ad0440b50e87a8a6f5ff3021c8820fe226bf72b25f96bad",
+    "fromId": "9593f63450206a42657a8a3235747d0edba0f1f8707bf2d6127f7e6315203b52",
     "timestamp": "",
-    "signature": ""
+    "signature": "a8cd7fe49925ac423e03dc4f7cd6559e8ed381f0d95eeef8cf67b32a01d58605ba432535bb52c1851e92227694e3db399dedd7627d4d54f3a13cc2ac52f7de0d"
 }
 
-# response
-# {
-#     ok: true
-# }
-
-
-###
-POST {{local}}/startSharingSecretTo
+### nodeId 2 stops accepting secrets from nodeId 1
+POST {{local}}/stopAcceptingSecretsFrom
 content-type: application/json
 
 {
-    "shareTo": "c0d09bc0faaab96ed5c543e1a003de7d77b3a7272f06f6789b620f321b14add0",
-    "publicKey": "cd9e84fce91adec2a92036ef4e9aec3a717e369451572619ffe4498421a08658",
+    "publicKey": "9593f63450206a42657a8a3235747d0edba0f1f8707bf2d6127f7e6315203b52",
+    "fromId": "2d44a025be09b5c82ad0440b50e87a8a6f5ff3021c8820fe226bf72b25f96bad",
+    "timestamp": "",
+    "signature": "d2df52aebee5ce478c0ad7150bad3cf06998a07ee9750a3d131bc035a5e9d72db7c8b6800ff524cefe9dc3ea14d9f0c067556baf43a39d485fa6df94b9a1db0c"
+}
+
+
+
+
+
+
+
+
+
+### nodeId 1 shares secret "darlingScore" = 10 to nodeId 2
+POST {{local}}/shareSecretTo
+content-type: application/json
+
+{
+    "publicKey": "2d44a025be09b5c82ad0440b50e87a8a6f5ff3021c8820fe226bf72b25f96bad",
+    "shareToId": "9593f63450206a42657a8a3235747d0edba0f1f8707bf2d6127f7e6315203b52",
+    "secretId": "darlingScore",
+    "secret": "10",
+    "timestamp": "",
+    "signature": "868040d19f4590d05d73843e778c045e9ca90b3e8cb7003febecf7c94965cf2e199295baf53d3135ccc0a4e696d4a6ff49777ebfbcbbc977661b79255763b903"
+}
+
+### nodeId 2 shares secret "darlingScore" = 9 to nodeId 1
+POST {{local}}/shareSecretTo
+content-type: application/json
+
+{
+    "publicKey": "9593f63450206a42657a8a3235747d0edba0f1f8707bf2d6127f7e6315203b52",
+    "shareToId": "2d44a025be09b5c82ad0440b50e87a8a6f5ff3021c8820fe226bf72b25f96bad",
+    "secretId": "darlingScore",
+    "secret": "9",
+    "timestamp": "",
+    "signature": "02d39b24be753e4eae0b95328d32cca4c316c3545e77304161f3910edf1f35872fb27478b7617f0d722b5f8470087dab283099b8ef3a598f40862cb62cb9f20d"
+}
+
+
+
+
+
+### nodeId 1 deletes shared secret "darlingScore" which was shared to nodeId 2 
+POST {{local}}/deleteSharedSecret
+content-type: application/json
+
+{
+    "publicKey": "2d44a025be09b5c82ad0440b50e87a8a6f5ff3021c8820fe226bf72b25f96bad",
+    "sharedToId": "9593f63450206a42657a8a3235747d0edba0f1f8707bf2d6127f7e6315203b52",
     "secretId": "darlingScore",
     "timestamp": "",
-    "signature": "73f14ab7af5951a22dd6fd9936d170ebd60e34629b3b7453ff2e78a9fd25b262cce21553a716bd97e35036fe89f527d873f7db0dc376088a98e4f4e5b893ec0d"
+    "signature": "47b0d4d954ca83fe90be80c91b7b3071964018672b3351ced88d17eda6cdcb93998bcafa09a11c62b023bec1686339fc0388cf891ed6c2d7f819feb86385f70e"
 }
 
-# response
-# {
-#     ok: true
-# }
-
-###
-POST {{local}}/stopSharingSecretTo
+### nodeId 2 deletes shared secret "darlingScore" which was shared to nodeId 1
+POST {{local}}/deleteSharedSecret
 content-type: application/json
 
 {
-    "shareTo": "c0d09bc0faaab96ed5c543e1a003de7d77b3a7272f06f6789b620f321b14add0",
-    "publicKey": "",
-    "secretId": "",
+    "publicKey": "9593f63450206a42657a8a3235747d0edba0f1f8707bf2d6127f7e6315203b52",
+    "sharedToId": "2d44a025be09b5c82ad0440b50e87a8a6f5ff3021c8820fe226bf72b25f96bad",
+    "secretId": "darlingScore",
     "timestamp": "",
-    "signature": ""
-}
-
-# response
-# {
-#     ok: true
-# }
-
-
-############################################################
-### deployment requests
-POST {{deploy}}/route
-content-type: application/json
-
-{
+    "signature": "a738f1bfa4a20dcf76777cb80162b92ef8c778d1de87569bc7c8b4c35f96e837debf993a0bd426f60b0e88508170ee5ca7d71e05346855a2e9d205217adcdd0b"
 }
