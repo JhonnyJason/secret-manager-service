@@ -48,6 +48,7 @@
     },
     "homepage": "https://github.com/JhonnyJason/secret-manager-service#readme",
     "dependencies": {
+        "cached-persistentstate": "^0.0.1",
         "coffeescript": "^2.6.1",
         "npm-check-updates": "^12.5.8",
         "npm-run-all": "^4.1.5",
