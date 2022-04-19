@@ -48,19 +48,18 @@
     },
     "homepage": "https://github.com/JhonnyJason/secret-manager-service#readme",
     "dependencies": {
-        "cached-persistentstate": "^0.0.1",
         "coffeescript": "^2.6.1",
-        "npm-check-updates": "^12.5.8",
+        "npm-check-updates": "^12.5.9",
         "npm-run-all": "^4.1.5",
-        "on-change": "^4.0.0",
-        "secret-manager-crypto-utils": "^0.1.0",
         "thingy-allmodules-sync": "^0.1.4",
         "thingy-module-gen": "^0.1.5",
-        "thingy-sci-base": "^0.0.4",
         "thingymodulecreate": "^0.1.8",
         "thingysync": "^0.1.2",
         "webpack": "^5.72.0",
-        "webpack-cli": "^4.9.2"
+        "webpack-cli": "^4.9.2",
+        "cached-persistentstate": "^0.0.1",
+        "secret-manager-crypto-utils": "^0.1.1",
+        "thingy-sci-base": "^0.0.4"
     },
     "type": "service"
 }
