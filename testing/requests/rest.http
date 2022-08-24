@@ -11,10 +11,13 @@ POST {{local}}/addNodeId
 content-type: application/json
 
 {
-    "publicKey": "2d44a025be09b5c82ad0440b50e87a8a6f5ff3021c8820fe226bf72b25f96bad",
-    "timestamp": "",
-    "signature": "2914efc19549082b439dab5042cc99e3236eda97e278ddad9f029b6a8f9b051bd20a2a01220aecbb75a1dec3a0d25353d59913fb406b10a8a0027418f1034809"
+    "authCode": "deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+    "publicKey": "5bbb4cb4b631484cc2a40120c8b682c46caabb7132af9936e74aeb6f402f9dc2",
+    "closureDate": null,
+    "timestamp": 1661336000000,
+    "signature": "237b1b8c1e87eafeab7cf71681b14d7f2c23c60a07ca34689f4f93e30bada644f7ab8297138a77c4be16cdce9904b428dbf5d26618ce7816f73df555659fa60f"
 }
+
 
 ### add nodeId 2
 ## 9593f63450206a42657a8a3235747d0edba0f1f8707bf2d6127f7e6315203b52
