@@ -12,10 +12,10 @@ content-type: application/json
 
 {
     "authCode": "deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
-    "publicKey": "5bbb4cb4b631484cc2a40120c8b682c46caabb7132af9936e74aeb6f402f9dc2",
+    "publicKey": "7ee738c853fb045af44b30188e09379c604af0497a5d403555433eda4c5b3968",
     "closureDate": null,
-    "timestamp": 1661336000000,
-    "signature": "237b1b8c1e87eafeab7cf71681b14d7f2c23c60a07ca34689f4f93e30bada644f7ab8297138a77c4be16cdce9904b428dbf5d26618ce7816f73df555659fa60f"
+    "timestamp": 1661580000000,
+    "signature": "fd400b7e7b1b8bb1b7d709869e3750765fc19989b00b208fc988eb1edc22d041e5c6c4eba7327c17d8f86d511b6dd51f701a4bf30b76cee6a91e07a6d9f3ec0d"
 }
 
 
