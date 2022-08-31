@@ -7,7 +7,7 @@
 ### add nodeId 1
 ## 2d44a025be09b5c82ad0440b50e87a8a6f5ff3021c8820fe226bf72b25f96bad
 ## cfbcd5b69e1a9967d5cf23ad14a1b1618d1f49f328f7328ae56a052bb7226826
-POST {{local}}/addNodeId
+POST {{local}}/openSecretSpace
 content-type: application/json
 
 {
@@ -22,7 +22,7 @@ content-type: application/json
 ### add nodeId 2
 ## 9593f63450206a42657a8a3235747d0edba0f1f8707bf2d6127f7e6315203b52
 ## ed477201e5e8ca20b167d07dface0c069ef308fd7f65d0ee608330f120c0809a
-POST {{local}}/addNodeId
+POST {{local}}/openSecretSpace
 content-type: application/json
 
 {
@@ -263,7 +263,7 @@ content-type: application/json
 
 
 ### nodeId 1 starts accepting secrets from nodeId 2
-POST {{local}}/startAcceptingSecretsFrom
+POST {{local}}/openSubSpace
 content-type: application/json
 
 {
@@ -275,7 +275,7 @@ content-type: application/json
 
 
 ### nodeId 2 starts accepting secrets from nodeId 1
-POST {{local}}/startAcceptingSecretsFrom
+POST {{local}}/openSubSpace
 content-type: application/json
 
 {
@@ -293,7 +293,7 @@ content-type: application/json
 
 
 ### nodeId 1 stops accepting secrets from nodeId 2
-POST {{local}}/stopAcceptingSecretsFrom
+POST {{local}}/deleteSubSpace
 content-type: application/json
 
 {
@@ -304,7 +304,7 @@ content-type: application/json
 }
 
 ### nodeId 2 stops accepting secrets from nodeId 1
-POST {{local}}/stopAcceptingSecretsFrom
+POST {{local}}/deleteSubSpace
 content-type: application/json
 
 {
