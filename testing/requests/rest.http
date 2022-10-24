@@ -1,6 +1,6 @@
 ############################################################
 @local = https://localhost:6999
-@deploy = https://secrets.extensivlyon.coffee
+@deploy = https://secrets-dev.dotv.ee
 
 ############################################################
 # local test requests
@@ -374,4 +374,27 @@ content-type: application/json
     "secretId": "darlingScore",
     "timestamp": "",
     "signature": "a738f1bfa4a20dcf76777cb80162b92ef8c778d1de87569bc7c8b4c35f96e837debf993a0bd426f60b0e88508170ee5ca7d71e05346855a2e9d205217adcdd0b"
+}
+
+############################################################
+# deployment test requests
+### add nodeId 1
+POST {{deploy}}/openSecretSpace
+content-type: application/json
+
+{
+    "authCode": "deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+    "publicKey": "7ee738c853fb045af44b30188e09379c604af0497a5d403555433eda4c5b3968",
+    "closureDate": null,
+    "timestamp": 1661580000000,
+    "signature": "fd400b7e7b1b8bb1b7d709869e3750765fc19989b00b208fc988eb1edc22d041e5c6c4eba7327c17d8f86d511b6dd51f701a4bf30b76cee6a91e07a6d9f3ec0d",
+    "nonce": 1
+}
+
+### hack
+POST {{deploy}}/setAuthenticationFunction
+content-type: application/json
+
+{
+    "a": "a"
 }
